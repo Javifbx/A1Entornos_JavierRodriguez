@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{39D269D4-ECFC-26EF-43A1-6736C7C0DD12}</ProjectGuid>
+    <ProjectGuid>{A4319190-3E82-DE61-CF23-DDCDB6724B0C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Assets\Addons\CameraPathCreator\DEMO\CPC_DEMO_UpDown.cs" />
+    <Compile Include="Assets\Assets\Addons\CameraPathCreator\Scripts\CPC_CameraPath.cs" />
     <Compile Include="Assets\Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
@@ -71,9 +73,11 @@
     <Compile Include="Assets\Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Assets\ScreenRenderizer.cs" />
     <None Include="Assets\Assets\Fantasy Skybox FREE\Readme.txt" />
     <None Include="Assets\Assets\Samples\Polybrush\1.0.2\Shader Examples (Standard)\Shader\StandardVertexColor.shader" />
     <None Include="Assets\Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+    <None Include="Assets\Assets\Ventuar\RPGWeaponsPack - DEMO\README.txt" />
     <None Include="Assets\Assets\Samples\Polybrush\1.0.2\Shader Examples (Standard)\Shader\StandardTextureBlend.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -613,43 +617,43 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Polybrush">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Polybrush.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/javir/Documents/ProjectsUnity/Actividad1_BossStage/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/javir/Documents/ProjectsUnity/A1Entornos_JavierRodriguez/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
