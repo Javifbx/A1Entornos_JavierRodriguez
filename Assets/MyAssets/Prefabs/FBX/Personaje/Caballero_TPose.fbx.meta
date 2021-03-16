@@ -1,38 +1,11 @@
 fileFormatVersion: 2
-guid: e965fa63c85d217498782aa67fd2642f
+guid: a1526986025ceb5448c25a852e9933a9
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 4743084820616853705
-    second: Armature|CameraAction
-  - first:
-      74: -982115091633673366
-    second: Armature|Death
-  - first:
-      74: -751813995980742648
-    second: Armature|EmptyAction
-  - first:
-      74: -3848410235068855396
-    second: Armature|Fight.001.L
-  - first:
-      74: -5285496027382200974
-    second: Armature|Fight.001.R
-  - first:
-      74: -3741353711543150417
-    second: Armature|Fight.002.R
-  - first:
-      74: -8945691123924629249
-    second: Armature|Idle
-  - first:
-      74: 1079665108409675491
-    second: Armature|Jump
-  - first:
-      74: -7551964380084998518
-    second: Armature|Run
-  - first:
-      74: 8349542763059015795
-    second: Armature|Walk
+      74: -203655887218126122
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -45,7 +18,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid copied Avatar Rig Configuration:\n\tNo human bone found.
+      Ensure both rig type match\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -53,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -114,13 +88,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

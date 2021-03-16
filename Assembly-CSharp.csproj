@@ -74,6 +74,7 @@
     <Compile Include="Assets\Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Assets\ScreenRenderizer.cs" />
+    <Compile Include="Assets\MyAssets\Prefabs\FBX\Personaje\InputData.cs" />
     <None Include="Assets\Assets\Fantasy Skybox FREE\Readme.txt" />
     <None Include="Assets\Assets\Samples\Polybrush\1.0.2\Shader Examples (Standard)\Shader\StandardVertexColor.shader" />
     <None Include="Assets\Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
