@@ -1,5 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -22,6 +20,12 @@ public class CharacterAnimBasedMovement : MonoBehaviour {
     [Range(0, 1f)]
     public float StopAnimTime = 0.15f;
 
+    [Header("Wall Detection")]
+    public LayerMask obstacleLayers;
+    public float wallStopThreshold = 30f;
+    public float wallStopDistance = 0.9f;
+    public float rayHeight = 0.5f;
+
     private Ray wallRay = new Ray();
     private float Speed;
     private Vector3 desiredMoveDirection;
@@ -29,75 +33,102 @@ public class CharacterAnimBasedMovement : MonoBehaviour {
     private Animator animator;
     private bool mirrorIdle;
     private bool turn180;
-  
+
+
     void Start() {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
 
-    
+
     public void moveCharacter(float hInput, float vInput, Camera cam, bool jump, bool dash) {
-        // Calculate the Input Magnitude
+
+        //Calculate the Input Magnitude
         Speed = new Vector2(hInput, vInput).normalized.sqrMagnitude;
 
-        //Dash only if character has reasched maxSpeed (animator parameter value)
-        if (Speed >= Speed - rotationThreshold) {
-            Speed = 1.5f;
+        // Dash only if character has reached maxSpeed (animator parameter value)
+        if (Speed >= Speed - rotationThreshold && dash) {
+            Speed =  1.5f;
         }
 
         //Physically move player
         if (Speed > rotationThreshold) {
-            animator.SetFloat(motionParam, Speed, StartAnimTime, Time.deltaTime);
-            Vector3 fordward = cam.transform.forward;
+
+            Vector3 forward = cam.transform.forward;
             Vector3 right = cam.transform.right;
 
-            fordward.y = 0f;
+            forward.y = 0f;
             right.y = 0f;
 
-            fordward.Normalize();
+            forward.Normalize();
             right.Normalize();
 
             // Rotate the character towards desired move direction based on player input and camera position
-            desiredMoveDirection = fordward * vInput + right * hInput;
+            desiredMoveDirection = forward * vInput + right * hInput;
 
-            if (Vector3.Angle(transform.forward, desiredMoveDirection) >= degreesToTurn)
-            {
-
+            if (Vector3.Angle(transform.forward, desiredMoveDirection) >= degreesToTurn) {
+                turn180 = true;
             }
-            else
-            {
+            else {
                 turn180 = false;
                 transform.rotation = Quaternion.Slerp(transform.rotation,
                                                   Quaternion.LookRotation(desiredMoveDirection),
                                                   rotationSpeed * Time.deltaTime);
             }
 
-
             // 180 turning
             animator.SetBool(turn180Param, turn180);
-            // Move the character
-            animator.SetFloat(motionParam, Speed, StartAnimTime, Time.deltaTime);
+
+            // Wall Detection
+            Vector3 rayOriging = transform.position;
+            rayOriging.y += rayHeight;
+
+            wallRay.origin = rayOriging;
+            wallRay.direction = transform.forward;
+
+            bool wallDetected = Vector3.Angle(transform.forward, desiredMoveDirection) < wallStopThreshold &&
+                           Physics.Raycast(wallRay, wallStopDistance, obstacleLayers);
+
+            Debug.DrawRay(rayOriging, transform.forward, Color.red);
+
+            if (wallDetected) {
+                // Simple foot IK for idle animation
+                animator.SetBool(mirrorIdleParam, mirrorIdle);
+                // Stop the character
+                animator.SetFloat(motionParam, 0f, StopAnimTime, Time.deltaTime);
+                Debug.DrawRay(rayOriging, transform.forward, Color.yellow);
+            }
+            else
+                // Move the character
+                animator.SetFloat(motionParam, Speed, StartAnimTime, Time.deltaTime);
+
         }
-            
         else if (Speed < rotationThreshold) {
+
+            // Simple foot IK for idle animation
             animator.SetBool(mirrorIdleParam, mirrorIdle);
-            animator.SetFloat(motionParam, Speed, StopAnimTime, Time.deltaTime);
-        } 
+            // Stop the character
+            animator.SetFloat(motionParam, 0f, StopAnimTime, Time.deltaTime);
+        }
     }
+
+
     private void OnAnimatorIK(int layerIndex) {
 
-        if (Speed < rotationThreshold) return;
+        if (Speed < rotationThreshold)
+            return;
 
         float distanceToLeftFoot = Vector3.Distance(transform.position, animator.GetIKPosition(AvatarIKGoal.LeftFoot));
-        float distanceTorRightFoot = Vector3.Distance(transform.position, animator.GetIKPosition(AvatarIKGoal.RightFoot));
+        float distanceToRightFoot = Vector3.Distance(transform.position, animator.GetIKPosition(AvatarIKGoal.RightFoot));
 
         // Right foot in front
-        if (distanceTorRightFoot > distanceToLeftFoot)
-        {
+        if (distanceToRightFoot > distanceToLeftFoot) {
             mirrorIdle = true;
+
         // Right foot behind
         } else {
             mirrorIdle = false;
         }
     }
+
 }
