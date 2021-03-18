@@ -33,6 +33,7 @@ public class CharacterAnimBasedMovement : MonoBehaviour {
     private Animator animator;
     private bool mirrorIdle;
     private bool turn180;
+    
 
 
     void Start() {
@@ -109,6 +110,14 @@ public class CharacterAnimBasedMovement : MonoBehaviour {
             animator.SetBool(mirrorIdleParam, mirrorIdle);
             // Stop the character
             animator.SetFloat(motionParam, 0f, StopAnimTime, Time.deltaTime);
+        }
+
+        if (jump == true && characterController.isGrounded == true) {
+            animator.SetBool("jump", true);
+        }
+
+        else {
+            animator.SetBool("jump", false);
         }
     }
 
