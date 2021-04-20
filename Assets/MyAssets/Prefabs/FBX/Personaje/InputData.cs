@@ -14,6 +14,7 @@ public struct InputData {
     // Extra momevement
     public bool dash;
     public bool jump;
+  
 
     public void getInput()
     {
